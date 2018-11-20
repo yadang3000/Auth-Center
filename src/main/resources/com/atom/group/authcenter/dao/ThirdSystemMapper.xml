@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atom.group.authcenter.dao.ThirdSystemMapper">
+  <resultMap id="BaseResultMap" type="com.atom.group.authcenter.entity.ThirdSystem">
+    <constructor>
+      <arg column="third_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="third_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="third_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="check_in_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    third_id, third_name, third_code, check_in_time, status
+  </sql>
+  <select id="selectByExample" parameterType="com.atom.group.authcenter.entity.ThirdSystemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from uc_third_system
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.atom.group.authcenter.entity.ThirdSystemExample">
+    delete from uc_third_system
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.atom.group.authcenter.entity.ThirdSystem">
+    insert into uc_third_system (third_id, third_name, third_code, 
+      check_in_time, status)
+    values (#{thirdId,jdbcType=BIGINT}, #{thirdName,jdbcType=VARCHAR}, #{thirdCode,jdbcType=VARCHAR}, 
+      #{checkInTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.atom.group.authcenter.entity.ThirdSystem">
+    insert into uc_third_system
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="thirdId != null">
+        third_id,
+      </if>
+      <if test="thirdName != null">
+        third_name,
+      </if>
+      <if test="thirdCode != null">
+        third_code,
+      </if>
+      <if test="checkInTime != null">
+        check_in_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="thirdId != null">
+        #{thirdId,jdbcType=BIGINT},
+      </if>
+      <if test="thirdName != null">
+        #{thirdName,jdbcType=VARCHAR},
+      </if>
+      <if test="thirdCode != null">
+        #{thirdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="checkInTime != null">
+        #{checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.atom.group.authcenter.entity.ThirdSystemExample" resultType="java.lang.Long">
+    select count(*) from uc_third_system
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update uc_third_system
+    <set>
+      <if test="record.thirdId != null">
+        third_id = #{record.thirdId,jdbcType=BIGINT},
+      </if>
+      <if test="record.thirdName != null">
+        third_name = #{record.thirdName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thirdCode != null">
+        third_code = #{record.thirdCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkInTime != null">
+        check_in_time = #{record.checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update uc_third_system
+    set third_id = #{record.thirdId,jdbcType=BIGINT},
+      third_name = #{record.thirdName,jdbcType=VARCHAR},
+      third_code = #{record.thirdCode,jdbcType=VARCHAR},
+      check_in_time = #{record.checkInTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

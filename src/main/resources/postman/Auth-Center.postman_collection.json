@@ -1,0 +1,191 @@
+{
+	"id": "402387ff-ead8-46bc-c924-3efd4014adc7",
+	"name": "Auth-Center",
+	"description": "",
+	"order": [
+		"57c451a2-889e-f0c2-b0d4-e475dc132957",
+		"b054722c-ca73-ca3a-a03f-c234eaba788c",
+		"a10c5ab4-63fe-f32d-df2f-66d713aab327",
+		"5c1ef04b-e68f-7768-5e36-8cdab335021c",
+		"65ee7a4d-4c8a-2989-ce93-9991dc0c510d"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1539940809722,
+	"owner": "297772",
+	"public": false,
+	"requests": [
+		{
+			"id": "57c451a2-889e-f0c2-b0d4-e475dc132957",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:9090/signUp",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "402387ff-ead8-46bc-c924-3efd4014adc7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "注册",
+			"description": "localhost:9090/signUp",
+			"descriptionFormat": "html",
+			"time": 1539940828525,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"mobile\":\"18858113061\",\n\t\"code\":\"175426\",\n\t\"origin\":\"demo\"\n}"
+		},
+		{
+			"id": "5c1ef04b-e68f-7768-5e36-8cdab335021c",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:9090/loginCode?mobile=18812340000",
+			"queryParams": [
+				{
+					"key": "mobile",
+					"value": "18812340000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1539940950836,
+			"name": "登录验证码",
+			"description": "localhost:9090/loginCode?mobile=18858113061",
+			"collectionId": "402387ff-ead8-46bc-c924-3efd4014adc7",
+			"responses": []
+		},
+		{
+			"id": "65ee7a4d-4c8a-2989-ce93-9991dc0c510d",
+			"headers": "Content-Type: application/x-www-form-urlencoded\naudience: demo\nsubject: web\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "audience",
+					"value": "demo",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "subject",
+					"value": "web",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:9090/onlineUser",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "402387ff-ead8-46bc-c924-3efd4014adc7",
+			"data": [
+				{
+					"key": "jwt",
+					"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhdXRoLWNlbnRlciIsImlhdCI6MTUzOTc2MDUyMywiYXVkIjoiZGVtbyIsInN1YiI6IndlYiIsImV4cCI6MTU0MjM1MjUyMywianRpIjoiNyJ9.O26HsAWrr80sK7pllSiwLsta_wxyf1etI-b8SmImwOs",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"name": "获取在线用户信息",
+			"description": "localhost:9090/onlineUser",
+			"descriptionFormat": "html",
+			"time": 1539940971376,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "a10c5ab4-63fe-f32d-df2f-66d713aab327",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:9090/registerCode?mobile=86-18812340000",
+			"queryParams": [
+				{
+					"key": "mobile",
+					"value": "86-18812340000",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "402387ff-ead8-46bc-c924-3efd4014adc7",
+			"data": null,
+			"dataMode": "params",
+			"name": "注册验证码",
+			"description": "localhost:9090/registerCode?mobile=86-18812340000",
+			"descriptionFormat": "html",
+			"time": 1539940927278,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "b054722c-ca73-ca3a-a03f-c234eaba788c",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:9090/signIn",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "402387ff-ead8-46bc-c924-3efd4014adc7",
+			"data": [],
+			"dataMode": "raw",
+			"name": "登录",
+			"description": "localhost:9090/signIn",
+			"descriptionFormat": "html",
+			"time": 1539940883809,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"identity\":\"86-18858113061\",\n\t\"credentials\":\"514189\",\n\t\"audience\":\"demo\",\n\t\"subject\":\"web\"\n}"
+		}
+	]
+}

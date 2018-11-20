@@ -1,0 +1,167 @@
+{
+  "hints": [
+    {
+      "name": "auth.code-persistence-policy",
+      "values": [
+        {
+          "value": "local"
+        },
+        {
+          "value": "mysql"
+        },
+        {
+          "value": "redis"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "sourceType": "com.atom.group.authcenter.core.config.AuthBootstrapConfig",
+      "name": "auth",
+      "type": "com.atom.group.authcenter.core.config.AuthBootstrapConfig"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis",
+      "type": "com.atom.group.authcenter.core.jedis.JedisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.atom.group.authcenter.core.config.AuthBootstrapConfig",
+      "name": "auth.code-persistence-policy",
+      "description": "验证码持久化策略",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": true,
+      "name": "jedis.block-when-exhausted",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.cluster",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis.cluster-url",
+      "description": "clusterUrl   example:ip:port;ip:port.",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis.host-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis.master-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 8,
+      "name": "jedis.max-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 8,
+      "name": "jedis.max-total",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": -1,
+      "name": "jedis.max-wait-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 1800000,
+      "name": "jedis.min-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 0,
+      "name": "jedis.min-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 3,
+      "name": "jedis.num-tests-per-eviction-run",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 0,
+      "name": "jedis.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.sentinel",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "name": "jedis.sentinel-url",
+      "description": "sentinelUrl   example:ip:port;ip:port.",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 1800000,
+      "name": "jedis.soft-min-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.test-on-borrow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.test-on-create",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.test-on-return",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": false,
+      "name": "jedis.test-while-idle",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": -1,
+      "name": "jedis.time-between-eviction-runs-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.atom.group.authcenter.core.jedis.JedisProperties",
+      "defaultValue": 10000,
+      "name": "jedis.time-out",
+      "type": "java.lang.Integer"
+    }
+  ]
+}

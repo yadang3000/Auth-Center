@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atom.group.authcenter.dao.ApplicationClientMapper">
+  <resultMap id="BaseResultMap" type="com.atom.group.authcenter.entity.ApplicationClient">
+    <constructor>
+      <arg column="client_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="secret_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="time_millis" javaType="java.lang.Long" jdbcType="BIGINT" />
+      <arg column="client_name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="client_code" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="type" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="check_in_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="status" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="application_id" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    client_id, secret_code, time_millis, client_name, client_code, type, check_in_time, 
+    status, application_id
+  </sql>
+  <select id="selectByExample" parameterType="com.atom.group.authcenter.entity.ApplicationClientExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from uc_application_client
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.atom.group.authcenter.entity.ApplicationClientExample">
+    delete from uc_application_client
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.atom.group.authcenter.entity.ApplicationClient">
+    insert into uc_application_client (client_id, secret_code, time_millis, 
+      client_name, client_code, type, 
+      check_in_time, status, application_id
+      )
+    values (#{clientId,jdbcType=BIGINT}, #{secretCode,jdbcType=VARCHAR}, #{timeMillis,jdbcType=BIGINT}, 
+      #{clientName,jdbcType=VARCHAR}, #{clientCode,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, 
+      #{checkInTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, #{applicationId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.atom.group.authcenter.entity.ApplicationClient">
+    insert into uc_application_client
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        client_id,
+      </if>
+      <if test="secretCode != null">
+        secret_code,
+      </if>
+      <if test="timeMillis != null">
+        time_millis,
+      </if>
+      <if test="clientName != null">
+        client_name,
+      </if>
+      <if test="clientCode != null">
+        client_code,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="checkInTime != null">
+        check_in_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="applicationId != null">
+        application_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clientId != null">
+        #{clientId,jdbcType=BIGINT},
+      </if>
+      <if test="secretCode != null">
+        #{secretCode,jdbcType=VARCHAR},
+      </if>
+      <if test="timeMillis != null">
+        #{timeMillis,jdbcType=BIGINT},
+      </if>
+      <if test="clientName != null">
+        #{clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="clientCode != null">
+        #{clientCode,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="checkInTime != null">
+        #{checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="applicationId != null">
+        #{applicationId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.atom.group.authcenter.entity.ApplicationClientExample" resultType="java.lang.Long">
+    select count(*) from uc_application_client
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update uc_application_client
+    <set>
+      <if test="record.clientId != null">
+        client_id = #{record.clientId,jdbcType=BIGINT},
+      </if>
+      <if test="record.secretCode != null">
+        secret_code = #{record.secretCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timeMillis != null">
+        time_millis = #{record.timeMillis,jdbcType=BIGINT},
+      </if>
+      <if test="record.clientName != null">
+        client_name = #{record.clientName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clientCode != null">
+        client_code = #{record.clientCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null">
+        type = #{record.type,jdbcType=TINYINT},
+      </if>
+      <if test="record.checkInTime != null">
+        check_in_time = #{record.checkInTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.applicationId != null">
+        application_id = #{record.applicationId,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update uc_application_client
+    set client_id = #{record.clientId,jdbcType=BIGINT},
+      secret_code = #{record.secretCode,jdbcType=VARCHAR},
+      time_millis = #{record.timeMillis,jdbcType=BIGINT},
+      client_name = #{record.clientName,jdbcType=VARCHAR},
+      client_code = #{record.clientCode,jdbcType=VARCHAR},
+      type = #{record.type,jdbcType=TINYINT},
+      check_in_time = #{record.checkInTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=TINYINT},
+      application_id = #{record.applicationId,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

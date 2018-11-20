@@ -1,0 +1,41 @@
+
+spring:
+  dataSource:
+    url: jdbc:mysql://39.104.120.163:53306/userCenter?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    password: yxq@2018
+    username: root
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapperLocations:
+  - classpath:**/*Mapper.xml
+  - classpath:**/*Dao.xml
+  configuration:
+    mapUnderscoreToCamelCase: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+server:
+  port: 9090
+
+jedis:
+  host-name: 39.104.120.163
+  port: 6379
+
+auth:
+  code-persistence-policy: redis
+
+sms:
+  aliyun:
+    access-key-id: LTAId3mbIdCCXK5i
+    access-key-secret: Jms3OYh10IxLR4aZSNWgHTpOLp4iDH
+    sign-name: 一线牵
+
+
+
+txt:
+  abc: 123

@@ -1,0 +1,3 @@
+com.atom.group.authcenter.core.code.persistence.impl.LocalCodePersistence
+com.atom.group.authcenter.core.code.persistence.impl.MySqlCodePersistence
+com.atom.group.authcenter.core.code.persistence.impl.RedisCodePersistence
